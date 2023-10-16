@@ -2,4 +2,3 @@ Enter file in which to save the key (C:\Users\User/.ssh/id_rsa): C:\Users\User/.
 Your public key has been saved in C:\Users\User/.ssh/escterraformkey.pub
 
 
-SHA256:gUr/0XLYIXZzDzr0N6TDy4nshfTeU8SmAw80O8JLtCQ user@hectorlaris
