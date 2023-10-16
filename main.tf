@@ -62,3 +62,23 @@ resource "azurerm_network_security_rule" "escterraform-dev-sr" {
   resource_group_name         = azurerm_resource_group.escterraform-rg.name
   network_security_group_name = azurerm_network_security_group.escterraform-sg.name
 }
+
+# We´re going to associate sn with sg 
+# azurerm_subnet_network_security_group_association
+resource "azurerm_subnet_network_security_group_association" "escterraform-asoc-sn-se" {
+  subnet_id                 = azurerm_subnet.escterraform-snet.id
+  network_security_group_id = azurerm_network_security_group.escterraform-sg.id
+}
+
+# We´re going to give to my future VM away to the internet by creating a public IP: 
+#  azurerm_public_ip
+resource "azurerm_public_ip" "escterrafor-ip" {
+  name                = "escolaris-pu-ip"
+  resource_group_name = azurerm_resource_group.escterraform-rg.name
+  location            = azurerm_resource_group.escterraform-rg.location
+  allocation_method   = "Dynamic"
+
+  tags = {
+    environment = "dev"
+  }
+}
